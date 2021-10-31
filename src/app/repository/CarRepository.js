@@ -12,9 +12,14 @@ class CarRepository {
         })
     }
 
+    async findCarById(payloadParam) {
+        return CarSchema.findById(payloadParam)
+    }
+
     async removeCarById(payloadParam) {
         return CarSchema.findByIdAndDelete(payloadParam)
     }
+
 }
 
 module.exports = new CarRepository()
