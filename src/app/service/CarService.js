@@ -9,6 +9,15 @@ class CarService {
             return error
         }
     }
+
+    async listCars(payloadQuery) {
+        try {
+            const result = await CarRepository.addCar(payloadQuery)
+            return result
+        } catch (error) {
+            return error
+        }
+    }
 }
 
 module.exports = new CarService()
