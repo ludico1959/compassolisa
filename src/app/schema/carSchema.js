@@ -25,10 +25,10 @@ const CarSchema = new mongoose.Schema({
 
     quantidadePassageiros: {
         type: Number,
-        require: true
+        required: true
     }
 }) 
 
-const Car = mongoose.model('Car', CarsSchema)
+const Car = mongoose.model('Car', CarSchema)
 
 module.exports = Car
