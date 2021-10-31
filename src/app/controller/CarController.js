@@ -1,4 +1,4 @@
-const CarService = require('../service/CarsService')
+const CarService = require('../service/CarService')
 
 class CarController {
     async addCar(req, res) {
