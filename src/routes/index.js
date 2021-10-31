@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const car = require('../routes/car.router')
+const car = require('./car.router')
 
 module.exports = server => {
     server.use((req, res, next) => {

@@ -6,3 +6,5 @@ class CarController {
         return res.status(201).json({ result })
     }
 }
+
+module.exports = new CarController()
