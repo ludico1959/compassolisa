@@ -12,12 +12,21 @@ class CarService {
 
     async listCars(payloadQuery) {
         try {
-            const result = await CarRepository.addCar(payloadQuery)
+            const result = await CarRepository.listCars(payloadQuery)
             return result
         } catch (error) {
             return error
         }
     }
+
+    // async removeCarById(payloadParam) {
+    //     try {
+    //         const result = await CarRepository.removeCarById(payloadParam)
+    //         return result
+    //     } catch (error) {
+    //         return error
+    //     }
+    // }
 }
 
 module.exports = new CarService()

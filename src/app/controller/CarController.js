@@ -10,6 +10,11 @@ class CarController {
         const veiculos = await CarService.listCars(req.query)
         return res.status(200).json({ veiculos })
     }
+    
+    // async removeCarById(req, res) {
+    //     const veiculo = await CarService.listCars(req.params.id)
+    //     return res.status(200).json({ veiculo })
+    // }
 }
 
 module.exports = new CarController()
