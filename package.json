@@ -1,0 +1,24 @@
+{
+  "name": "compassolisa",
+  "version": "1.0.0",
+  "description": "CRUD API RESTful for luxury and semi-luxury car rentals",
+  "main": "serve.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludico1959/compassolisa.git"
+  },
+  "keywords": [
+    "crud",
+    "nodejs",
+    "restful"
+  ],
+  "author": "Lucas Dias Coelho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ludico1959/compassolisa/issues"
+  },
+  "homepage": "https://github.com/ludico1959/compassolisa#readme"
+}
