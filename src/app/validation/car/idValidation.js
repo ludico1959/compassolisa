@@ -5,7 +5,6 @@ module.exports = async (req, res, next) => {
         const { id } = req.params
 
         const car = await CarRepository.findCarById(id)
-        console.log(car)
 
         if (car) {
             req.car = car

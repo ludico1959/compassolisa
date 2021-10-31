@@ -15,6 +15,11 @@ class CarController {
         const veiculo = await CarService.removeCarById(req.params.id)
         return res.status(204).json({ veiculo })
     }
+
+    async updateCarById(req, res) {
+        const veiculo = await CarService.updateCarById(req.params.id, req.body)
+        return res.status(202).json({ veiculo })
+    }
 }
 
 module.exports = new CarController()

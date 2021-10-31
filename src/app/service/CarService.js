@@ -27,6 +27,15 @@ class CarService {
             return error
         }
     }
+
+    async updateCarById(payloadParam, payloadBody) {
+        try {
+            const result = await CarRepository.updateCarById(payloadParam, payloadBody)
+            return result
+        } catch (error) {
+            return error
+        }
+    }
 }
 
 module.exports = new CarService()
