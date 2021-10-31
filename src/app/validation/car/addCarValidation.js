@@ -20,6 +20,7 @@ module.exports = async (req, res, next) => {
                         .required()
                 })
                 .unique()
+                .min(1)
                 .required(),
 
             quantidadePassageiros: Joi.number()
@@ -32,6 +33,6 @@ module.exports = async (req, res, next) => {
 
         return next()
     } catch (error){
-        return res.status(400).json(error )
+        return res.status(400).json(error)
     }
 }
