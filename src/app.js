@@ -1,4 +1,5 @@
 const express = require('express')
+const router = require('./routes')
 
 class AppController {
     constructor() {
@@ -12,8 +13,8 @@ class AppController {
     }
 
     routes() {
-    
+        router(this.server)
     }
 }
 
-module.exports = new AppController().express
+module.exports = new AppController().server
