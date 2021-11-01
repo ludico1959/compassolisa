@@ -7,11 +7,11 @@ This API RESTful includes the four basic CRUD operations and it is about a luxur
 - Node.JS v14.17.6;
 - MongoDB v.4.4.9;
 - Node Third Party Modules:
--- Express.Js v.4.17.1,
--- Mongoose v.6.0.11,
--- Joi v17.4.2,
--- Mongoose Paginate V2 v1.4.2,
--- Nodemon v2.0.14 (devDependencie); 
+  - Express.Js v.4.17.1,
+  - Mongoose v.6.0.11,
+  - Joi v17.4.2,
+  - Mongoose Paginate V2 v1.4.2,
+  - Nodemon v2.0.14 (devDependencie); 
 - JSON data (for sending and returning data);
 - Postman v8.12.5 (for testing endpoits);
 
