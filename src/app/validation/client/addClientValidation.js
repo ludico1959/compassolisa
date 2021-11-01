@@ -1,5 +1,8 @@
 const Joi = require('joi')
 
+const now = Date.now()
+const cutoffDate = new Date(now - (1000 * 60 * 60 * 24 * 365 * 18))
+
 module.exports = async (req, res, next) => {
     try {
         const schema = Joi.object({
@@ -12,6 +15,7 @@ module.exports = async (req, res, next) => {
                 .required(),
             
             data_nascimento: Joi.date()
+                .max(cutoffDate)
                 .required(),
 
             email: Joi.string()
