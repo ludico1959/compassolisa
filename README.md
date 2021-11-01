@@ -6,7 +6,7 @@ This API RESTful includes the four basic CRUD operations and it is about a luxur
 
 - Node.JS v14.17.6;
 - MongoDB v.4.4.9;
- - Node Third Party Modules:
+- Node Third Party Modules:
 -- Express.Js v.4.17.1,
 -- Mongoose v.6.0.11,
 -- Joi v17.4.2,
