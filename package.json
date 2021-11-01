@@ -28,7 +28,8 @@
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.12",
-    "mongoose-paginate-v2": "^1.4.2"
+    "mongoose-paginate-v2": "^1.4.2",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"
