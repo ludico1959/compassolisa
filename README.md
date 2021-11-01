@@ -2,7 +2,7 @@
 
 This API RESTful includes the four basic CRUD operations and it is about a luxury and semi luxury car rental system.
 
-## 💾 Resources: 
+## 💾 Resources
 
 - Node.JS v14.17.6;
 - MongoDB v.4.4.9;
