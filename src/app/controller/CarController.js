@@ -10,6 +10,11 @@ class CarController {
         const veiculos = await CarService.listCars(req.query)
         return res.status(200).json({ veiculos })
     }
+
+    async findCarById(req, res) {
+        const veiculo = await CarService.findCarById(req.params.id)
+        return res.status(200).json({ veiculo })
+    }
     
     async removeCarById(req, res) {
         const veiculo = await CarService.removeCarById(req.params.id)

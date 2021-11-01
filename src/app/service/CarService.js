@@ -19,6 +19,15 @@ class CarService {
         }
     }
 
+    async findCarById(payloadParam) {
+        try {
+            const result = await CarRepository.findCarById(payloadParam)
+            return result
+        } catch (error) {
+            return error
+        }
+    }
+
     async removeCarById(payloadParam) {
         try {
             const result = await CarRepository.removeCarById(payloadParam)
