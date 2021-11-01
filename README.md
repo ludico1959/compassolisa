@@ -72,3 +72,4 @@ If MongoDD is properly installed on your machine, it will start the service show
 
 ### 5️⃣ Testing the application with Postman
 Use the Postman request collection from the repository to easily test the endpoints!
+The file name is **postman_collection.json**.
