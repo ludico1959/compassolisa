@@ -48,7 +48,7 @@ Before installing the dependencies from the project, you need to have already in
 Open cmd.exe (if you are using Windows) or another command-line interpreter and enter the path of your project. Then just type the following instruction: 
 
 ```
-npm install"
+npm install
 ```
 
 By typing the statement above, it will automatically download all the dependencies listed in the package.json file inside the folder **node_modules**:
