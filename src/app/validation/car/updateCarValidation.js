@@ -3,7 +3,8 @@ const Joi = require('joi')
 module.exports = async (req, res, next) => {
     try {
         const schema = Joi.object({
-            modelo: Joi.string(),
+            modelo: Joi.string()
+                .trim(),
 
             cor: Joi.string(),
             

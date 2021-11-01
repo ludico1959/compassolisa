@@ -7,6 +7,7 @@ module.exports = async (req, res, next) => {
     try {
         const schema = Joi.object({
             nome: Joi.string()
+                .trim()
                 .required(),
 
             cpf: Joi.string()

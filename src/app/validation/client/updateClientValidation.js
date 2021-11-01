@@ -6,7 +6,8 @@ const cutoffDate = new Date(now - (1000 * 60 * 60 * 24 * 365 * 18))
 module.exports = async (req, res, next) => {
     try {
         const schema = Joi.object({
-            nome: Joi.string(),
+            nome: Joi.string()
+                .trim(),
 
             cpf: Joi.string()
                 .max(14)
