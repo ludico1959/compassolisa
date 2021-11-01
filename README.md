@@ -11,6 +11,8 @@ This API RESTful includes the four basic CRUD operations and it is about a luxur
   - Mongoose v.6.0.11,
   - Joi v17.4.2,
   - Mongoose Paginate V2 v1.4.2,
+  - bcryptjs v2.4.3,
+  - JSON Web Token v8.5.1,
   - Nodemon v2.0.14 (devDependencie); 
 - JSON data (for sending and returning data);
 - Postman v8.12.5 (for testing endpoits);
