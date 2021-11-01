@@ -4,7 +4,7 @@ module.exports = async (req, res, next) => {
     try {
         const { id } = req.params
 
-        const client = await clientRepository.findClientById(id)
+        const client = await ClientRepository.findClientById(id)
 
         if (client) {
             req.client = client
