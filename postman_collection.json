@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "6b992ca4-819b-453e-b150-c27ea8271329",
+		"name": "Compassolisa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Carros",
+			"item": [
+				{
+					"name": "Cadastrar carro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"modelo\": \"GM S10 2.8\", \r\n    \"cor\": \"branco\", \r\n    \"ano\": \"2021\", \r\n    \"acessorios\": [ \r\n        { \"descricao\": \"Ar-condicionado\" }, \r\n        { \"descricao\": \"Dir. Hidráulica\" }, \r\n        { \"descricao\": \"Cabine Dupla\" }, \r\n        { \"descricao\": \"Tração 4x4\" }, \r\n        { \"descricao\": \"4 portas\" }, \r\n        { \"descricao\": \"Diesel\" }, \r\n        { \"descricao\": \"Air bag\" }, \r\n        { \"descricao\": \"ABS\" } \r\n    ], \r\n    \"quantidadePassageiros\": 5 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos os carros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar carro por parâmetro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/car/?modelo=\"GM S10 2.8\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"car",
+								""
+							],
+							"query": [
+								{
+									"key": "modelo",
+									"value": "\"GM S10 2.8\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar carro por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/car/6178b94e6de23b2fec39a748",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"car",
+								"6178b94e6de23b2fec39a748"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar carro por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ano\": \"2020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/car/6178c705160c422dcfe2d31e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"car",
+								"6178c705160c422dcfe2d31e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover carro por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/car/6178b94e6de23b2fec39a748",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"car",
+								"6178b94e6de23b2fec39a748"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Cadastrar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"nome\": \"joaozinho ciclano\", \r\n    \"cpf\": \"131.147.860-49\", \r\n    \"data_nascimento\": \"03/03/2021\", \r\n    \"email\": \"joazinho@email.com\", \r\n    \"senha\": \"123456\", \r\n    \"habilitado\": \"sim\" \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos os clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar cliente por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people/6178cd6f5ff62e1709dbf362",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people",
+								"6178cd6f5ff62e1709dbf362"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar cliente por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senha\": \"654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people/6178cd6f5ff62e1709dbf362",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people",
+								"6178cd6f5ff62e1709dbf362"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover cliente por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people/6178cd6f5ff62e1709dbf362",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people",
+								"6178cd6f5ff62e1709dbf362"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticação de cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"email\": \"joazinho@email.com\", \r\n    \"senha\": \"123456\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
