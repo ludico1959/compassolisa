@@ -11,7 +11,54 @@
     "servers": [
         {
             "url": "http://localhost:3000/api/v1/",
-            "description": "API Version 1"
+            "description": "Test API"
         }
-    ]
+    ],
+    "paths": {
+        "/": {
+            "post": {
+                "summary": "Add a new car to the system.",
+                "description": "This route is responsible to create a new car.",
+                "tag": ["Car"],
+                "requestbody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Car"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Car": {
+                "type": "object",
+                "properties": {
+                    "modelo": {
+                        "type": "string"
+                    },
+                    "cor": {
+                        "type": "string"
+                    },
+                    "ano": {
+                        "type": "number"
+                    },
+                    "acessorios": [{
+                        "descricao": {
+                            "type": "string"
+                        }
+                    }],
+                    "quantidadePassageiros": {
+                        "type": "number"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
 }
