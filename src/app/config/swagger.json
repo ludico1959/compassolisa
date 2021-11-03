@@ -1,3 +1,17 @@
 {
-    
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Compassolisa",
+        "description": "This API RESTful includes the four basic CRUD operations and it is about a luxury and semi luxury car rental system.",
+        "contact": {
+            "email": "ludico1959@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api/v1/",
+            "description": "API Version 1"
+        }
+    ]
 }
