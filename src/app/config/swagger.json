@@ -25,6 +25,16 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/Car"
+                            },
+                            "examples": {
+                                "car": {
+                                    "modelo": "GM S10 2.8",
+                                    "cor": "branco",
+                                    "ano": 2021,
+                                    "acessorios": [{
+                                        "descricao": "Ar-condicionado"
+                                    }]
+                                }
                             }
                         }
                     }

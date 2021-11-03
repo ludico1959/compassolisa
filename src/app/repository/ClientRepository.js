@@ -24,6 +24,10 @@ class ClientRepository {
         return ClientSchema.findByIdAndUpdate(payloadParam, payloadBody)
     }
 
+    async findClientByEmail(email) {
+        return ClientSchema.findOne({ email })
+    }
+
 }
 
 module.exports = new ClientRepository()
