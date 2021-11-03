@@ -8,6 +8,7 @@ module.exports = async (req, res, next) => {
                 .required(),
 
             cor: Joi.string()
+                .trim()
                 .required(),
             
             ano: Joi.number()
@@ -18,6 +19,7 @@ module.exports = async (req, res, next) => {
             acessorios: Joi.array()
                 .items({
                     descricao: Joi.string()
+                        .trim()
                         .required()
                 })
                 .unique()
