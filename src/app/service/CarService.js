@@ -9,7 +9,7 @@ class CarService {
             return error
         }
     }
-
+    
     async listCars(payloadQuery) {
         try {
             const result = await CarRepository.listCars(payloadQuery)

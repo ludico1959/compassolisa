@@ -6,7 +6,7 @@ class ClientController {
         const client = await ClientService.addClient(req.body)
         return res.status(201).json(serialize(client))
     }
-
+    
     async listClients(req, res) {
         const clients = await ClientService.listClients(req.query)
         return res.status(200).json(paginateSeriealize(clients))
