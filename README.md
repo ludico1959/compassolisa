@@ -10,6 +10,8 @@ This API RESTful includes the four basic CRUD operations and it is about a luxur
   - Express.Js v.4.17.1,
   - Mongoose v.6.0.11,
   - Joi v17.4.2,
+  - @joi/date v2.1.0 (Joi extensions for advance date rules),
+  - Moment v2.29.1,
   - Mongoose Paginate V2 v1.4.2,
   - bcryptjs v2.4.3,
   - JSON Web Token v8.5.1,
