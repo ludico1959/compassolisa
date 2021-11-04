@@ -14,14 +14,15 @@ module.exports = async (req, res, next) => {
                 .regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/),
             
             data_nascimento: Joi.date()
-                .max(cutoffDate),
+                .max(cutoffDate)
+                .format('DD/MM/AAA'),
 
             email: Joi.string()
                 .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
                 .lowercase(),
             
             senha: Joi.string()
-                .min(6),
+                .regex(/^[a-zA-Z0-9]{8, 30}$/),
                 
             habilitado: Joi.string()
                 .valid('sim', 'não'),

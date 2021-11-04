@@ -24,10 +24,12 @@
   },
   "homepage": "https://github.com/ludico1959/compassolisa#readme",
   "dependencies": {
+    "@joi/date": "^2.1.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.12",
     "mongoose-paginate-v2": "^1.4.2",
     "swagger-ui-express": "^4.1.6"

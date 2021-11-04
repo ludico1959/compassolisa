@@ -1,4 +1,4 @@
-const Joi = require('joi')
+const Joi = require('joi').extend(require('@joi/date'))
 
 const now = Date.now()
 const cutoffDate = new Date(now - (1000 * 60 * 60 * 24 * 365 * 18))
@@ -11,12 +11,14 @@ module.exports = async (req, res, next) => {
                 .required(),
 
             cpf: Joi.string()
+                .min(14)
                 .max(14)
                 .regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)
                 .required(),
             
             data_nascimento: Joi.date()
                 .max(cutoffDate)
+                .format('DD/MM/AAA')
                 .required(),
 
             email: Joi.string()
@@ -25,7 +27,7 @@ module.exports = async (req, res, next) => {
                 .required(),
             
             senha: Joi.string()
-                .min(6)
+                .regex(/^[a-zA-Z0-9]{8, 30}$/)
                 .required(),
                 
             habilitado: Joi.string()

@@ -24,7 +24,7 @@ class CarController {
 
     async updateCarById(req, res) {
         const veiculo = await CarService.updateCarById(req.params.id, req.body)
-        return res.status(202).json(serialize(veiculo))
+        return res.status(200).json(serialize(veiculo))
     }
 }
 

@@ -24,7 +24,7 @@ class ClientController {
 
     async updateClientById(req, res) {
         const client = await ClientService.updateClientById(req.params.id, req.body)
-        return res.status(202).json(serialize(client))
+        return res.status(200).json(serialize(client))
     }
 }
 
