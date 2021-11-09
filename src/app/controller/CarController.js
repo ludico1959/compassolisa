@@ -26,6 +26,11 @@ class CarController {
         const veiculo = await CarService.updateCarById(req.params.id, req.body)
         return res.status(200).json(serialize(veiculo))
     }
+
+    async updateCarAccessory(req, res) {
+        const accessory = await CarService.updateCarAccessory(req.params, req.body)
+        return res.status(200).json(serialize(accessory))
+    }
 }
 
 module.exports = new CarController()
