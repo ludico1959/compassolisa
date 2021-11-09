@@ -40,24 +40,24 @@ class CarRepository {
         return accessory  
     }
 
-    // async removeAccessoryById(id, accessoryId, descricao) {
-    //     await CarSchema.updateOne(
-    //         {},
-    //         {
-    //             $pull: { 
-    //                 acessorios : {descricao: descricao}
-    //             }
-    //         },
-    //         {
-    //             multi: true
-    //         }
-    //     )
+    async removeAccessoryById(id, accessoryId, descricao) {
+        await CarSchema.findOneAndUpdate(
+            {},
+            {
+                $pull: { 
+                    acessorios : {descricao: descricao}
+                }
+            },
+            {
+                multi: true
+            }
+        )
 
-    //     const car = await this.findCarById(id)
-    //     const accessory = car.acessorios.filter(accessorio => accessorio.descricao === descricao)
+        const car = await this.findCarById(id)
+        const accessory = car.acessorios.filter(accessorio => accessorio.descricao === descricao)
 
-    //     return accessory 
-    // }
+        return accessory 
+    }
 }
 
 module.exports = new CarRepository()
