@@ -16,16 +16,18 @@ This API RESTful includes the four basic CRUD operations and it is about a luxur
   - bcryptjs v2.4.3,
   - JSON Web Token v8.5.1,
   - Swagger UI Express v4.1.6,
+  - Axios v0.24.0,
   - Nodemon v2.0.14 (devDependencie); 
 - JSON data (for sending and returning data);
-- Postman v8.12.5 (for testing endpoits);
+- ViaCEP - Webservice CEP;
+- Postman v8.12.5 (for testing endpoits).
 
 
 ## 📬 Testing the application on Postman
 
 If you want to test the API's created in the project, first download the [Postman](https://www.postman.com/downloads/).
 After downloading Postman, just follow the steps below to
-be able to test the API!
+be able to test it!
 
 ## 💻 Run locally
 
