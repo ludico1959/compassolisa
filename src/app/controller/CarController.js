@@ -4,8 +4,8 @@ const CarService = require('../service/CarService')
 class CarController {
     async addCar(req, res) {
         try {
-            const veiculo = await CarService.addCar(req.body)
-            return  res.status(201).json(serialize(veiculo))
+            const vehicle = await CarService.addCar(req.body)
+            return  res.status(201).json(serialize(vehicle))
         } catch (error) {
             return (error)
         } 
@@ -13,8 +13,8 @@ class CarController {
 
     async listCars(req, res) {
         try {
-            const veiculos = await CarService.listCars(req.query)
-            return res.status(200).json(paginateSeriealize(veiculos))
+            const vehicles = await CarService.listCars(req.query)
+            return res.status(200).json(paginateSeriealize(vehicles))
         } catch (error) {
             return (error)
         } 
@@ -22,8 +22,8 @@ class CarController {
 
     async findCarById(req, res) {
         try{
-            const veiculo = await CarService.findCarById(req.params.id)
-            return res.status(200).json(serialize(veiculo))
+            const vehicle = await CarService.findCarById(req.params.id)
+            return res.status(200).json(serialize(vehicle))
         } catch (error) {
             return (error)
         } 
@@ -40,8 +40,8 @@ class CarController {
 
     async updateCarById(req, res) {
         try{
-            const veiculo = await CarService.updateCarById(req.params.id, req.body)
-            return res.status(200).json(serialize(veiculo))
+            const vehicle = await CarService.updateCarById(req.params.id, req.body)
+            return res.status(200).json(serialize(vehicle))
         } catch (error) {
             return (error)
         }
@@ -49,8 +49,8 @@ class CarController {
 
     async updateCarAccessory(req, res) {
         try{
-            const accessory = await CarService.updateCarAccessory(req.params, req.body)
-            return res.status(200).json(serialize(accessory))
+            const description = await CarService.updateCarAccessory(req.params, req.body)
+            return res.status(200).json(serialize(description))
         } catch (error) {
             return (error)
         }

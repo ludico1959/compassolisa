@@ -26,11 +26,19 @@ class CarService {
         return result
     }
 
-    async updateCarAccessory({id, accessoryId}, {descricao}) {
-        const car = await CarRepository.findCarById(id)
-        if (!car) throw new Error
+    async updateCarAccessory({idCar, idDescription}, {descricao}) {
+        const vehicle = await CarRepository.findCarById(idCar)
+        if (!vehicle) throw new Error
 
-        const result = await CarRepository.updateCarAccessory(accessoryId, descricao)
+        const idDescriptions = vehicle.acessorios.filter(accessory => accessory._id.toString() === idDescription)
+        if(idDescriptions.length === 0) 
+            return CarRepository.addAccessoryById(idDescription, descricao)
+
+        const descriptions = vehicle.acessorios.filter(accessory => accessory.descricao === descricao)
+        if(descriptions.length > 0) 
+            return CarRepository.removeAccessoryById(idDescription, descricao)
+
+        const result = await CarRepository.updateCarAccessory(idDescription, descricao)
 
         return result
     }

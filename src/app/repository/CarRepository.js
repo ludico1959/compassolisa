@@ -38,23 +38,32 @@ class CarRepository {
         return result  
     }
 
-    async removeAccessoryById(id, accessoryId, descricao) {
-        await CarSchema.findOneAndUpdate(
-            {},
+    async removeAccessoryById(idDescription, descricao) {
+        const result = await CarSchema.findOneAndUpdate(
+            { 'acessorios._id': idDescription },
             {
                 $pull: { 
-                    acessorios : {descricao: descricao}
+                    'acessorios.$.descricao': descricao
                 }
             },
-            {
-                multi: true
-            }
+            { new: true, safe: true, upsert: true }
         )
 
-        const car = await this.findCarById(id)
-        const accessory = car.acessorios.filter(accessorio => accessorio.descricao === descricao)
+        return result  
+    }
 
-        return accessory 
+    async addAccessoryById(idDescription, descricao) {
+        const result = await CarSchema.findOneAndUpdate(
+            { 'acessorios._id': idDescription },
+            {
+                $push: { 
+                    'acessorios.$.descricao': descricao
+                }
+            },
+            { new: true, safe: true, upsert: true }
+        )
+
+        return result  
     }
 }
 
