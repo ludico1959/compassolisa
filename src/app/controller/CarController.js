@@ -21,7 +21,7 @@ class CarController {
     }
 
     async findCarById(req, res) {
-        try{
+        try {
             const vehicle = await CarService.findCarById(req.params.id)
             return res.status(200).json(serialize(vehicle))
         } catch (error) {
@@ -30,7 +30,7 @@ class CarController {
     }
     
     async removeCarById(req, res) {
-        try{
+        try {
             await CarService.removeCarById(req.params.id)
             return res.status(204).json({})
         } catch (error) {
@@ -39,7 +39,7 @@ class CarController {
     }
 
     async updateCarById(req, res) {
-        try{
+        try {
             const vehicle = await CarService.updateCarById(req.params.id, req.body)
             return res.status(200).json(serialize(vehicle))
         } catch (error) {
@@ -48,7 +48,7 @@ class CarController {
     }
 
     async updateCarAccessory(req, res) {
-        try{
+        try {
             const description = await CarService.updateCarAccessory(req.params, req.body)
             return res.status(200).json(serialize(description))
         } catch (error) {

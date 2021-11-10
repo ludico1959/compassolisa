@@ -11,6 +11,7 @@ module.exports = async (req, res, next) => {
                 .required(),
 
             cpf: Joi.string()
+                .unique()
                 .min(14)
                 .max(14)
                 .regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)
@@ -22,6 +23,7 @@ module.exports = async (req, res, next) => {
                 .required(),
 
             email: Joi.string()
+                .unique()
                 .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
                 .lowercase()
                 .required(),
