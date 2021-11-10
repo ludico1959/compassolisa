@@ -2,7 +2,13 @@ const ClientSchema = require('../schema/ClientSchema');
 
 class ClientRepository {
   async addClient(payloadBody) {
-    return ClientSchema.create(payloadBody);
+    try {
+      const result = await ClientSchema.create(payloadBody);
+      return result;
+    } catch (error) {
+      return error
+    }
+    
   }
 
   async listClients(payloadQuery) {

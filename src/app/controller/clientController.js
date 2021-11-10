@@ -3,28 +3,48 @@ const ClientService = require('../service/ClientService');
 
 class ClientController {
   async addClient(req, res) {
-    const client = await ClientService.addClient(req.body);
-    return res.status(201).json(serialize(client));
+    try {
+      const client = await ClientService.addClient(req.body);
+      return res.status(201).json(serialize(client));
+    } catch (error) {
+      return res.status(400).json(error);
+    }
   }
-
+  
   async listClients(req, res) {
-    const clients = await ClientService.listClients(req.query);
-    return res.status(200).json(paginateSeriealize(clients));
+    try{
+      const clients = await ClientService.listClients(req.query);
+      return res.status(200).json(paginateSeriealize(clients));
+    } catch (error) {
+      return error;
+    }
   }
 
   async findClientById(req, res) {
-    const client = await ClientService.findClientById(req.params.id);
-    return res.status(200).json({ client });
+    try {
+      const client = await ClientService.findClientById(req.params.id);
+      return res.status(200).json({ client });
+    } catch (error) {
+      return error;
+    }
   }
 
   async removeClientById(req, res) {
-    await ClientService.removeClientById(req.params.id);
-    return res.status(204).json({});
+    try {
+      await ClientService.removeClientById(req.params.id);
+      return res.status(204).json({});
+    } catch (error) {
+      return error;
+    }
   }
 
   async updateClientById(req, res) {
-    const client = await ClientService.updateClientById(req.params.id, req.body);
-    return res.status(200).json(serialize(client));
+    try {
+      const client = await ClientService.updateClientById(req.params.id, req.body);
+      return res.status(200).json(serialize(client));
+    } catch (error) {
+      return error;
+    }
   }
 }
 

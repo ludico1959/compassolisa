@@ -1,49 +1,32 @@
 const ClientRepository = require('../repository/ClientRepository');
+const DateUtils = require('../utils/dateUtils');
 
 class ClientService {
   async addClient(payloadBody) {
-    try {
-      const result = await ClientRepository.addClient(payloadBody);
-      return result;
-    } catch (error) {
-      return error;
-    }
-  }
+    payloadBody.data_nascimento = await DateUtils.formatToDatabase(payloadBody.data_nascimento)
 
+    const result = await ClientRepository.addClient(payloadBody);
+    return result;
+  }
+  
   async listClients(payloadQuery) {
-    try {
-      const result = await ClientRepository.listClients(payloadQuery);
-      return result;
-    } catch (error) {
-      return error;
-    }
+    const result = await ClientRepository.listClients(payloadQuery);
+    return result;
   }
 
   async findClientById(payloadParam) {
-    try {
-      const result = await ClientRepository.findClientById(payloadParam);
-      return result;
-    } catch (error) {
-      return error;
-    }
+    const result = await ClientRepository.findClientById(payloadParam);
+    return result;
   }
 
   async removeClientById(payloadParam) {
-    try {
-      const result = await ClientRepository.removeClientById(payloadParam);
-      return result;
-    } catch (error) {
-      return error;
-    }
+    const result = await ClientRepository.removeClientById(payloadParam);
+    return result;
   }
 
   async updateClientById(payloadParam, payloadBody) {
-    try {
-      const result = await ClientRepository.updateClientById(payloadParam, payloadBody);
-      return result;
-    } catch (error) {
-      return error;
-    }
+    const result = await ClientRepository.updateClientById(payloadParam, payloadBody);
+    return result;
   }
 }
 

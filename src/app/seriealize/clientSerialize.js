@@ -1,8 +1,8 @@
-const moment = require('moment');
+const DateUtils = require('../utils/dateUtils');
 
 const serialize = ({ _id, nome, cpf, data_nascimento, email, habilitado }) => {
   // eslint-disable-next-line
-  data_nascimento = moment(data_nascimento, 'YYYY/MM/DD').format('DD/MM/YYYY');
+  data_nascimento = DateUtils.formatToRequest(data_nascimento);
 
   return { _id, nome, cpf, data_nascimento, email, habilitado };
 };
