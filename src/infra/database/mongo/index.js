@@ -1,13 +1,13 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 class Database {
-    constructor() {
-        this.connect()
-    }
+  constructor() {
+    this.connect();
+  }
 
-    connect() {
-        mongoose.connect('mongodb://localhost:27017/compassolisa')
-    }
+  connect() {
+    mongoose.connect('mongodb://localhost:27017/compassolisa');
+  }
 }
 
-module.exports = new Database().connect()
+module.exports = new Database().connect();

@@ -1,47 +1,45 @@
-const mongoose = require('mongoose')
-const mongoosePaginate = require('mongoose-paginate-v2')
-const bcrypt = require('bcryptjs')
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+const bcrypt = require('bcryptjs');
 
 const ClientSchema = new mongoose.Schema({
-    nome: {
-        type: String
-    }, 
-    
-    cpf: {
-        type: String,
-        unique: true
-    },
+  nome: {
+    type: String
+  },
 
-    data_nascimento: {
-        type: Date
-    },
+  cpf: {
+    type: String,
+    unique: true
+  },
 
-    email: {
-        type: String,
-        unique: true
-    },
+  data_nascimento: {
+    type: Date
+  },
 
-    senha: {
-        type: String
-    },
+  email: {
+    type: String,
+    unique: true
+  },
 
-    habilitado: {
-        type: String,
-        enum: ['sim', 'não']
-    },
+  senha: {
+    type: String
+  },
 
+  habilitado: {
+    type: String,
+    enum: ['sim', 'não']
+  }
+});
 
-}) 
+ClientSchema.pre('save', async (next) => {
+  const hash = await bcrypt.hash(this.senha, 10);
+  this.senha = hash;
 
-ClientSchema.pre('save', async function(next) {
-    const hash = await bcrypt.hash(this.senha, 10)
-    this.senha = hash
+  next();
+});
 
-    next()
-})
+ClientSchema.plugin(mongoosePaginate);
 
-ClientSchema.plugin(mongoosePaginate)
+const Client = mongoose.model('Client', ClientSchema);
 
-const Client = mongoose.model('Client', ClientSchema)
-
-module.exports = Client
+module.exports = Client;
