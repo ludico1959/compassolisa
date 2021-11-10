@@ -8,7 +8,8 @@ const ClientSchema = new mongoose.Schema({
     }, 
     
     cpf: {
-        type: String
+        type: String,
+        unique: true
     },
 
     data_nascimento: {
@@ -16,7 +17,8 @@ const ClientSchema = new mongoose.Schema({
     },
 
     email: {
-        type: String
+        type: String,
+        unique: true
     },
 
     senha: {

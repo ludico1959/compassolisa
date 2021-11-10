@@ -6,11 +6,11 @@ const RentalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
+
     cnpj: {
         type: String,
-        required: true,
-        unique: true
+        unique: true,
+        required: true
     },
 
     atividades: {
@@ -19,25 +19,72 @@ const RentalSchema = new mongoose.Schema({
     },
 
     endereco: [{
-
         cep: {
             type: String,
             required: true
         },
 
-        number: {
+        logradouro: {
             type: String,
-            required: true
-        },
-
-        isFilial: {
-            type: Boolean,
             required: true
         },
 
         complemento: {
             type: String,
             required: false
+        },
+
+        bairro: {
+            type: String,
+            required: true
+        },
+
+        number: {
+            type: Number,
+            required: true
+        },
+
+        localidade: {
+            type: String,
+            required: true
+        },
+
+        uf: {
+            type: String,
+            enum: [
+                'AC',
+                'AL',
+                'AP',
+                'AM',
+                'BA',
+                'CE',
+                'DF',
+                'ES',
+                'GO',
+                'MA',
+                'MT',
+                'MS',
+                'MG',
+                'PA',
+                'PB',
+                'PR',
+                'PE',
+                'PI',
+                'RJ',
+                'RN',
+                'RS',
+                'RO',
+                'RR',
+                'SC',
+                'SP',
+                'SE',
+                'TO'
+            ],
+            required: true
+        },
+        isFilial: {
+            type: Boolean,
+            required: true
         }
     }]
 })
