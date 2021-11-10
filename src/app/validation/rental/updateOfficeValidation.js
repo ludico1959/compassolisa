@@ -5,19 +5,16 @@ module.exports = async (req, res, next) => {
         const schema = Joi.object({
             nome: Joi.string()
                 .min(3)
-                .replace(' ', '')
-                .required(),
+                .replace(' ', ''),
 
             cnpj: Joi.string()
                 .min(14)
                 .max(18)
-                .regex(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/)
-                .required(),
+                .regex(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/),
 
             atividades: Joi.string()
                 .trim()
-                .min(3)
-                .required(),
+                .min(3),
 
             endereco: Joi.array()
                 .min(1)
@@ -37,7 +34,6 @@ module.exports = async (req, res, next) => {
                     complemento: Joi.string()
                         .min(3)
                 })
-                .required()
         })
 
         const { error } = await schema.validate(req.body, { abortEarly: false })
