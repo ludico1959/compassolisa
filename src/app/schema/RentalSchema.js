@@ -6,15 +6,18 @@ const RentalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    
     cnpj: {
         type: String,
         required: true,
         unique: true
     },
+
     atividades: {
         type: String,
         required: true
     },
+
     endereco: [{
 
         cep: {

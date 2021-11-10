@@ -2,6 +2,15 @@ const { paginateSerialize, serialize } = require('../serialize/RentalSerialize')
 const RentalService = require('../service/RentalService');
 
 class RentalController {
+    async addOffice(req, res) {
+        try {
+            const result = await RentalService.addOffice(req.body);
+            return res.status(201).json(serialize(result));
+        } catch (error) {
+            return (error)
+        } 
+    }
+
     async listOffices(req, res) {
         try {
             const result = await RentalService.listOffices(req.query)

@@ -1,6 +1,10 @@
 const RentalSchema = require('../schema/RentalSchema')
 
 class RentalRepository {
+    async addOffice(payloadBody) {
+        return RentalSchema.create(payloadBody)
+    }
+    
     async listOffices(payloadQuery){
         return RentalSchema.paginate(payloadQuery, {
             page: payload.page || 1,

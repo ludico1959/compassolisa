@@ -1,24 +1,27 @@
 const RentalRepository = require('../repository/RentalRepository')
 
 class RentalService {
+    async addOffice(payloadBody) {
+        const result = await RentalRepository.addOffice(payloadBody)
+        return result
+    }
+    
     async listOffices(payloadQuery) {
         const result = await RentalRepository.listOffices(payloadQuery)
         return result
-        
     }
 
-    async listOfficeById(payloadQuery){
+    async listOfficeById(payloadQuery) {
         const result = await RentalRepository.listOfficeById(payloadQuery)
-        return result
-        
+        return result   
     }
 
-    async updateOfficeById(payloadQuery, payloadBody){
+    async updateOfficeById(payloadQuery, payloadBody) {
         const result = await RentalRepository.updateOfficeById(payloadQuery, payloadBody)
         return result
     }
 
-    async deleteOfficeById(payloadQuery){
+    async deleteOfficeById(payloadQuery) {
         const result = await RentalRepository.deleteOfficeById(payloadQuery)
         return result
     }
