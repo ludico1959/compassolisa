@@ -6,9 +6,8 @@ class ClientRepository {
       const result = await ClientSchema.create(payloadBody);
       return result;
     } catch (error) {
-      return error
+      return error;
     }
-    
   }
 
   async listClients(payloadQuery) {

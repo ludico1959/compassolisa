@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require('joi').extend(require('@joi/date'));
 
 const now = Date.now();
 const cutoffDate = new Date(now - 1000 * 60 * 60 * 24 * 365 * 18);
@@ -12,13 +12,13 @@ module.exports = async (req, res, next) => {
         .max(14)
         .regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/),
 
-      data_nascimento: Joi.date().max(cutoffDate).format('DD/MM/AAA'),
+      data_nascimento: Joi.date().max(cutoffDate).format('DD/MM/YYYY'),
 
       email: Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
         .lowercase(),
 
-      senha: Joi.string().regex(/^[a-zA-Z0-9]{8, 30}$/),
+      senha: Joi.string().min(6),
 
       habilitado: Joi.string().valid('sim', 'não')
     });

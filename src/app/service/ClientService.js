@@ -3,12 +3,12 @@ const DateUtils = require('../utils/dateUtils');
 
 class ClientService {
   async addClient(payloadBody) {
-    payloadBody.data_nascimento = await DateUtils.formatToDatabase(payloadBody.data_nascimento)
+    payloadBody.data_nascimento = await DateUtils.formatToDatabase(payloadBody.data_nascimento);
 
     const result = await ClientRepository.addClient(payloadBody);
     return result;
   }
-  
+
   async listClients(payloadQuery) {
     const result = await ClientRepository.listClients(payloadQuery);
     return result;

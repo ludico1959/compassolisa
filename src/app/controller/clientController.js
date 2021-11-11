@@ -10,9 +10,9 @@ class ClientController {
       return res.status(400).json(error);
     }
   }
-  
+
   async listClients(req, res) {
-    try{
+    try {
       const clients = await ClientService.listClients(req.query);
       return res.status(200).json(paginateSeriealize(clients));
     } catch (error) {

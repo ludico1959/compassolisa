@@ -14,10 +14,7 @@ module.exports = async (req, res, next) => {
         .regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)
         .required(),
 
-      data_nascimento: Joi.date()
-        .max(cutoffDate)
-        .format('DD/MM/YYYY')
-        .required(),
+      data_nascimento: Joi.date().max(cutoffDate).format('DD/MM/YYYY').required(),
 
       email: Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })

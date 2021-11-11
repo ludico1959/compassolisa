@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 const bcrypt = require('bcryptjs');
-const { required } = require('joi');
 
 const ClientSchema = mongoose.Schema({
   nome: {
@@ -37,7 +36,7 @@ const ClientSchema = mongoose.Schema({
   }
 });
 
-ClientSchema.pre('save', async function hash(next) {
+ClientSchema.pre('save', async function encrypted(next) {
   const hash = await bcrypt.hash(this.senha, 10);
   this.senha = hash;
 
