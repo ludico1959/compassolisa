@@ -1,4 +1,5 @@
 const Joi = require('joi').extend(require('@joi/date'));
+const ErrorSerialize = require('../../seriealize/ErrorSerialize');
 
 const now = Date.now();
 const cutoffDate = new Date(now - 1000 * 60 * 60 * 24 * 365 * 18);
@@ -32,6 +33,6 @@ module.exports = async (req, res, next) => {
 
     return next();
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(400).json(ErrorSerialize(error));
   }
 };
