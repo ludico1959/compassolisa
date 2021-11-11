@@ -4,10 +4,10 @@ const RentalSchema = require('../schema/RentalSchema');
 class RentalRepository {
   async addOffice(payloadBody) {
     for (let i = 0; i < payloadBody.endereco.length; i++) {
-      const busca = axios
+      const seachCep = await axios
         .get(`https://viacep.com.br/ws/${payloadBody.endereco[i].cep}/json`)
         .then((response) => response.data);
-      const { logradouro, complemento, bairro, localidade, uf } = busca;
+      const { logradouro, complemento, bairro, localidade, uf } = seachCep;
       payloadBody.endereco[i].logradouro = logradouro;
       payloadBody.endereco[i].complemento = complemento;
       payloadBody.endereco[i].bairro = bairro;
