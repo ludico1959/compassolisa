@@ -67,13 +67,13 @@ Well, now on the same cmd.exe screen (or another command-line interpreter), just
 node src/app/server.js
 ```
 
-Then you will need to open another terminal on your machine and start MongoDD. Just type the following command on the cmd.exe (or another command-line interpreter) screen:
+Then you will need to open another terminal on your machine and start MongoDB. Just type the following command on the cmd.exe (or another command-line interpreter) screen:
 
 ```
 mongod
 ```
 
-If MongoDD is properly installed on your machine, it will start the service showing that port 27017 has been started.
+If MongoDB is properly installed on your machine, it will start the service showing that port 27017 has been started.
 
 ### 5️⃣ Testing the application with Postman
 Use the Postman request collection from the repository to easily test the endpoints!
