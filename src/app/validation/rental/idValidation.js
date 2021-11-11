@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
 
     const { id } = req.params;
 
-    const office = await RentalRepository.findOfficeById(id);
+    const office = await RentalRepository.listOfficeById(id);
 
     if (office) {
       req.office = office;

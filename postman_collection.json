@@ -42,7 +42,13 @@
 					"name": "Listar todos os carros",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOGQyMTRkNDA1OWQwZjFhMDQzNjU4NyIsImlhdCI6MTYzNjY0MTYxNSwiZXhwIjoxNjM2NzI4MDE1fQ.8eecYDdFV60fF1vi6oiV52pt47PQLSc-uexRGaACMQA",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:3000/api/v1/car",
 							"protocol": "http",
@@ -157,6 +163,39 @@
 								"v1",
 								"car",
 								"6178b94e6de23b2fec39a748"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar acessório por ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Ar-condicionado\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/car/617f00ec93c3d2af3916c949/acessorios/617f2c9c2f808ee9c901cd3c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"car",
+								"617f00ec93c3d2af3916c949",
+								"acessorios",
+								"617f2c9c2f808ee9c901cd3c"
 							]
 						}
 					},
@@ -308,14 +347,147 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/authenticate",
+							"raw": "http://localhost:3000/api/v1/authenticate",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
+								"api",
+								"v1",
 								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locadoras",
+			"item": [
+				{
+					"name": "Cadastrar locadora",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Localiza Rent a Car\",\r\n    \"cnpj\": \"16.670.085/0001-55\",\r\n    \"atividades\": \"Aluguel de Carros E Gestão de Frotas\",\r\n    \"endereco\": [\r\n        {\r\n        \"cep\": \"96200-200\",\r\n        \"number\":\"1234\",\r\n        \"isFilial\": false\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/rental",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"rental"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todas as locadoras",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/rental",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"rental"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar locadora por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/rental/618d3aef649d7f7679a54d44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"rental",
+								"618d3aef649d7f7679a54d44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar locadora por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fala Zezé, bom dia cara\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/rental/618d3aef649d7f7679a54d44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"rental",
+								"618d3aef649d7f7679a54d44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover locadora por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/rental/618d3aef649d7f7679a54d44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"rental",
+								"618d3aef649d7f7679a54d44"
 							]
 						}
 					},
