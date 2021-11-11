@@ -18,10 +18,15 @@ class RentalRepository {
   }
 
   async listOffices(payloadQuery) {
-    return RentalSchema.paginate(payloadQuery, {
-      page: payloadQuery.page || 1,
-      limit: 2
-    });
+    const { page = 1, limit = 100, ...query } = payloadQuery;
+    return RentalSchema.paginate(
+      { ...query },
+      {
+        limit: Number(limit),
+        page: Number(page),
+        skip: (Number(page) - 1) * Number(limit)
+      }
+    );
   }
 
   async listOfficeById(payloadQuery) {

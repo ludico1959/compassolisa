@@ -2,19 +2,20 @@ const ClientSchema = require('../schema/ClientSchema');
 
 class ClientRepository {
   async addClient(payloadBody) {
-    try {
-      const result = await ClientSchema.create(payloadBody);
-      return result;
-    } catch (error) {
-      return error;
-    }
+    const result = await ClientSchema.create(payloadBody);
+    return result;
   }
 
   async listClients(payloadQuery) {
-    return ClientSchema.paginate(payloadQuery, {
-      page: payloadQuery.page || 1,
-      limit: 2
-    });
+    const { page = 1, limit = 100, ...query } = payloadQuery;
+    return ClientSchema.paginate(
+      { ...query },
+      {
+        limit: Number(limit),
+        page: Number(page),
+        skip: (Number(page) - 1) * Number(limit)
+      }
+    );
   }
 
   async findClientById(payloadParam) {
