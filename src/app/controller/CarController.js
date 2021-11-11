@@ -7,7 +7,7 @@ class CarController {
       const vehicle = await CarService.addCar(req.body);
       return res.status(201).json(serialize(vehicle));
     } catch (error) {
-      return error;
+      return res.status(400).json({ description: error.path, name: error.message });
     }
   }
 
@@ -16,7 +16,7 @@ class CarController {
       const vehicles = await CarService.listCars(req.query);
       return res.status(200).json(paginateSeriealize(vehicles));
     } catch (error) {
-      return error;
+      return res.status(400).json({ description: error.path, name: error.message });
     }
   }
 
@@ -25,7 +25,7 @@ class CarController {
       const vehicle = await CarService.findCarById(req.params.id);
       return res.status(200).json(serialize(vehicle));
     } catch (error) {
-      return error;
+      return res.status(400).json({ description: error.path, name: error.message });
     }
   }
 
@@ -34,7 +34,7 @@ class CarController {
       await CarService.removeCarById(req.params.id);
       return res.status(204).json({});
     } catch (error) {
-      return error;
+      return res.status(400).json({ description: error.path, name: error.message });
     }
   }
 
@@ -43,7 +43,7 @@ class CarController {
       const vehicle = await CarService.updateCarById(req.params.id, req.body);
       return res.status(200).json(serialize(vehicle));
     } catch (error) {
-      return error;
+      return res.status(400).json({ description: error.path, name: error.message });
     }
   }
 
@@ -52,7 +52,7 @@ class CarController {
       const description = await CarService.updateCarAccessory(req.params, req.body);
       return res.status(200).json(serialize(description));
     } catch (error) {
-      return error;
+      return res.status(400).json({ description: error.path, name: error.message });
     }
   }
 }
