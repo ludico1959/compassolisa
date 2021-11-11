@@ -1,28 +1,34 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 const bcrypt = require('bcryptjs');
+const { required } = require('joi');
 
-const ClientSchema = new mongoose.Schema({
+const ClientSchema = mongoose.Schema({
   nome: {
-    type: String
+    type: String,
+    required: true
   },
 
   cpf: {
     type: String,
-    unique: true
+    unique: true,
+    required: true
   },
 
   data_nascimento: {
-    type: Date
+    type: Date,
+    required: true
   },
 
   email: {
     type: String,
-    unique: true
+    unique: true,
+    required: true
   },
 
   senha: {
-    type: String
+    type: String,
+    required: true
   },
 
   habilitado: {
@@ -31,7 +37,7 @@ const ClientSchema = new mongoose.Schema({
   }
 });
 
-ClientSchema.pre('save', async (next) => {
+ClientSchema.pre('save', async function hash(next) {
   const hash = await bcrypt.hash(this.senha, 10);
   this.senha = hash;
 
