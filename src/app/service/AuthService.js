@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const authConfig = require('../config/auth.json');
 const ClientRepository = require('../repository/ClientRepository');
 
@@ -9,7 +10,9 @@ class AuthService {
 
     if (!client) throw Error('Client not found.');
 
-    if (senha !== client.senha) throw Error('Invalid password.');
+    bcrypt.compare(senha, client.senha, (error) => {
+      if (error) throw Error('Invalid password.');
+    });
 
     client.senha = undefined;
 
