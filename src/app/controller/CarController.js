@@ -1,4 +1,4 @@
-const { paginateSeriealize, serialize } = require('../seriealize/carSerialize');
+const { paginateSeriealize, serialize } = require('../seriealize/CarSerialize');
 const CarService = require('../service/CarService');
 
 class CarController {

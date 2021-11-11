@@ -1,4 +1,4 @@
-const { paginateSerialize, serialize } = require('../seriealize/rentalSerialize');
+const { paginateSerialize, serialize } = require('../seriealize/RentalSerialize');
 const RentalService = require('../service/RentalService');
 
 class RentalController {

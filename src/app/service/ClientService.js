@@ -1,7 +1,7 @@
 const ClientRepository = require('../repository/ClientRepository');
 const DateUtils = require('../utils/dateUtils');
 const ClientIdNotFound = require('../errors/client/ClientIdNotFound');
-const MinorUnder18yo = require('../errors/client/MinorUnder18yo');
+// const MinorUnder18yo = require('../errors/client/MinorUnder18yo');
 
 class ClientService {
   async addClient(payloadBody) {
