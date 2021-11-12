@@ -22,13 +22,6 @@ This API RESTful includes the four basic CRUD operations and it is about a luxur
 - ViaCEP - Webservice CEP;
 - Postman v8.12.5 (for testing endpoits).
 
-
-## 📬 Testing the application on Postman
-
-If you want to test the API's created in the project, first download the [Postman](https://www.postman.com/downloads/).
-After downloading Postman, just follow the steps below to
-be able to test it!
-
 ## 💻 Run locally
 
 If you want to run the project on your local machine, just follow the steps below:
@@ -75,6 +68,16 @@ mongod
 
 If MongoDB is properly installed on your machine, it will start the service showing that port 27017 has been started.
 
-### 5️⃣ Testing the application with Postman
-Use the Postman request collection from the repository to easily test the endpoints!
-The file name is **postman_collection.json**.
+### 5️⃣ Testing the application 
+There are two options to test this API: 
+
+#### 🎨 SWAGGER UI
+The first one, using Swagger UI, is more user friendly. To use it, just type the following route in the seach bar of your favorite brownser!
+
+```
+http://localhost:3000/api/v1/api-docs/
+```
+
+#### 📬 POSTMAN
+The second one is using the Postman request collection from the repository to easily test the endpoints!
+The file name is **postman_collection.json** and to use it, just download the Postman [here](https://www.postman.com/downloads/).
