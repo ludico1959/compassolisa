@@ -8,6 +8,6 @@ module.exports = (server, routes, prefix = '/api/v1/rental') => {
   routes.get('/', RentalController.listOffices);
   routes.get('/:id', idValidation, RentalController.listOfficeById);
   routes.put('/:id', idValidation, updateOfficeValidation, RentalController.updateOfficeById);
-  routes.delete('/:id', idValidation, RentalController.deleteOfficeById);
+  routes.delete('/:id', idValidation, RentalController.removeOfficeById);
   server.use(prefix, routes);
 };

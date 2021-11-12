@@ -1,4 +1,4 @@
-const DateUtils = require('../utils/dateUtils');
+const DateUtils = require('../utils/DateUtils');
 
 const serialize = ({ _id, nome, cpf, data_nascimento, email, habilitado }) => {
   // eslint-disable-next-line

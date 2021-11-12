@@ -37,7 +37,7 @@ class RentalRepository {
     return RentalSchema.findByIdAndUpdate(payloadQuery, payloadBody);
   }
 
-  async deleteOfficeById(payloadQuery) {
+  async removeOfficeById(payloadQuery) {
     return RentalSchema.findByIdAndDelete(payloadQuery);
   }
 }

@@ -38,10 +38,10 @@ class RentalController {
     }
   }
 
-  async deleteOfficeById(req, res) {
+  async removeOfficeById(req, res) {
     try {
-      const result = await RentalService.deleteOfficeById(req.params.id);
-      return res.status(202).json(serialize(result));
+      await RentalService.removeOfficeById(req.params.id);
+      return res.status(202).json({});
     } catch (error) {
       return res.status(400).json({ description: error.path, name: error.message });
     }

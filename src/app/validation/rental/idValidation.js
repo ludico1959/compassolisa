@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const RentalRepository = require('../../repository/RentalRepository');
+const ErrorSerialize = require('../../seriealize/ErrorSerialize');
 
 module.exports = async (req, res, next) => {
   try {
@@ -15,16 +15,8 @@ module.exports = async (req, res, next) => {
 
     if (error) throw error;
 
-    const { id } = req.params;
-
-    const office = await RentalRepository.listOfficeById(id);
-
-    if (office) {
-      req.office = office;
-      return next();
-    }
-    return res.status(404).json({ message: 'Office ID not found.' });
+    return next();
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(400).json(ErrorSerialize(error));
   }
 };
