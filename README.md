@@ -71,15 +71,13 @@ If MongoDB is properly installed on your machine, it will start the service show
 ### 5️⃣ Testing the application 
 There are two options to test this API: 
 
-#### 🎨 Swagger 
-The first one, using Swagger, is more user friendly. Just type the following route in your brownser:
+#### 🎨 SWAGGER UI
+The first one, using Swagger UI, is more user friendly. To use it, just type the following route in the seach bar of your favorite brownser!
 
 ```
 http://localhost:3000/api/v1/api-docs/
 ```
 
-#### 📬 Postman 
+#### 📬 POSTMAN
 The second one is using the Postman request collection from the repository to easily test the endpoints!
-The file name is **postman_collection.json** and to use it, just download the [Postman](https://www.postman.com/downloads/).
-After downloading Postman, just follow the steps below to
-be able to test it!
+The file name is **postman_collection.json** and to use it, just download the Postman [here](https://www.postman.com/downloads/).
