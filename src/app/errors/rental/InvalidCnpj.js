@@ -3,7 +3,7 @@ class InvalidCnpj extends Error {
     super();
     this.statusCode = 400;
     this.description = 'Bad Request';
-    this.message = `Invalid CPF ${cnpj}`;
+    this.message = `Invalid CNPJ ${cnpj}`;
   }
 }
 

@@ -6,7 +6,7 @@ const DuplicateDataUtils = require('../utils/DuplicateDataUtils');
 class RentalService {
   async addOffice(payloadBody) {
     await CnpjUtils.testCnpj(payloadBody.cnpj);
-    await DuplicateDataUtils.duplicatedCpj(payloadBody.cnpj);
+    await DuplicateDataUtils.duplicatedCnpj(payloadBody.cnpj);
     await DuplicateDataUtils.duplicatedHeadquarter(payloadBody.endereco);
 
     const result = await RentalRepository.addOffice(payloadBody);
