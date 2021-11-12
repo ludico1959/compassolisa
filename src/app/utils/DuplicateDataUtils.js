@@ -7,13 +7,13 @@ class DuplicateDataUtils {
   async duplicatedCpf(cpf) {
     const cpfSeach = await ClientSchema.find({ cpf });
 
-    if (cpfSeach.length > 0) throw new DuplicatedCpf();
+    if (cpfSeach.length > 0) throw new DuplicatedCpf(cpf);
   }
 
   async duplicatedEmail(email) {
     const emailSeach = await ClientSchema.find({ email });
 
-    if (emailSeach.length > 0) throw new DuplicatedEmail();
+    if (emailSeach.length > 0) throw new DuplicatedEmail(email);
   }
 
   async duplicatedHeadquarter(address) {

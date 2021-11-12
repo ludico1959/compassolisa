@@ -7,7 +7,7 @@ class RentalController {
       const result = await RentalService.addOffice(req.body);
       return res.status(201).json(serialize(result));
     } catch (error) {
-      return res.status(400).json({ description: error.path, name: error.message });
+      return res.status(error.statusCode).json({ description: error.description, name: error.message });
     }
   }
 
@@ -16,7 +16,7 @@ class RentalController {
       const result = await RentalService.listOffices(req.query);
       return res.status(200).json(paginateSerialize(result));
     } catch (error) {
-      return res.status(400).json({ description: error.path, name: error.message });
+      return res.status(error.statusCode).json({ description: error.description, name: error.message });
     }
   }
 
@@ -25,7 +25,7 @@ class RentalController {
       const result = await RentalService.listOfficeById(req.params.id);
       return res.status(200).json(serialize(result));
     } catch (error) {
-      return res.status(400).json({ description: error.path, name: error.message });
+      return res.status(error.statusCode).json({ description: error.description, name: error.message });
     }
   }
 
@@ -34,7 +34,7 @@ class RentalController {
       const result = await RentalService.updateOfficeById(req.params.id, req.body);
       return res.status(200).json(serialize(result));
     } catch (error) {
-      return res.status(400).json({ description: error.path, name: error.message });
+      return res.status(error.statusCode).json({ description: error.description, name: error.message });
     }
   }
 
@@ -43,7 +43,7 @@ class RentalController {
       await RentalService.removeOfficeById(req.params.id);
       return res.status(202).json({});
     } catch (error) {
-      return res.status(400).json({ description: error.path, name: error.message });
+      return res.status(error.statusCode).json({ description: error.description, name: error.message });
     }
   }
 }
