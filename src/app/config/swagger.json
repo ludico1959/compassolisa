@@ -40,6 +40,13 @@
       "description": "Car rental offices routes"
     }
   ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
   "paths": {
     "/authenticate/": {
       "post": {
@@ -99,6 +106,11 @@
     },
     "/car/": {
       "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "tags": [
           "cars"
         ],
@@ -184,6 +196,11 @@
         }
       },
       "get": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "tags": [
           "cars"
         ],
@@ -327,6 +344,11 @@
         }
       ],
       "get": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "tags": [
           "cars"
         ],
@@ -376,6 +398,11 @@
         }
       },
       "delete": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "tags": [
           "cars"
         ],
@@ -393,6 +420,11 @@
         }
       },
       "put": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "tags": [
           "cars"
         ],
@@ -501,6 +533,11 @@
         }
       ],
       "patch": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "tags": [
           "cars"
         ],
@@ -1326,7 +1363,7 @@
                 "properties": {
                   "nome": {
                     "type": "string",
-                    "example": "Localiza Rent a Car"
+                    "example": "LLocaliza Rent a Car"
                   },
                   "cnpj": {
                     "type": "string",
@@ -1425,6 +1462,15 @@
             "description": "Not Found"
           }
         }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
