@@ -1,8 +1,6 @@
 const Joi = require('joi').extend(require('@joi/date'));
 const ErrorSerialize = require('../../seriealize/ErrorSerialize');
-
-const now = Date.now();
-const cutoffDate = new Date(now - 1000 * 60 * 60 * 24 * 365 * 18);
+const MinorUtils = require('../../utils/MinorUtils');
 
 module.exports = async (req, res, next) => {
   try {
@@ -15,7 +13,7 @@ module.exports = async (req, res, next) => {
         .regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)
         .required(),
 
-      data_nascimento: Joi.date().max(cutoffDate).format('DD/MM/YYYY').required(),
+      data_nascimento: Joi.date().max(MinorUtils.cutOffDate()).format('DD/MM/YYYY').required(),
 
       email: Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
