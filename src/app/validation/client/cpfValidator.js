@@ -1,4 +1,4 @@
-const InvalidCpf = require('../errors/client/InvalidCpf');
+const InvalidCpf = require('../../errors/client/InvalidCpf');
 
 class CpfUtils {
   testCpf(strCPF) {

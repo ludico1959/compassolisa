@@ -1,13 +1,13 @@
 const RentalRepository = require('../repository/RentalRepository');
 const RentalIdNotFound = require('../errors/rental/RentalIdNotFound');
-const CnpjUtils = require('../utils/CnpjUtils');
-const DuplicateDataUtils = require('../utils/DuplicateDataUtils');
+const cnpjValidator = require('../validation/rental/cnpjValidator');
+const duplicateDataUtils = require('../validation/duplicateDataValidator');
 
 class RentalService {
   async addOffice(payloadBody) {
-    await CnpjUtils.testCnpj(payloadBody.cnpj);
-    await DuplicateDataUtils.duplicatedCnpj(payloadBody.cnpj);
-    await DuplicateDataUtils.duplicatedHeadquarter(payloadBody.endereco);
+    await cnpjValidator.testCnpj(payloadBody.cnpj);
+    await duplicateDataUtils.duplicatedCnpj(payloadBody.cnpj);
+    await duplicateDataUtils.duplicatedHeadquarter(payloadBody.endereco);
 
     const result = await RentalRepository.addOffice(payloadBody);
     return result;
@@ -26,12 +26,12 @@ class RentalService {
 
   async updateOfficeById(payloadParam, payloadBody) {
     if (payloadBody.cnpj) {
-      await CnpjUtils.testCnpj(payloadBody.cnpj);
-      await DuplicateDataUtils.duplicatedCpj(payloadBody.cnpj);
+      await cnpjValidator.testCnpj(payloadBody.cnpj);
+      await duplicateDataUtils.duplicatedCpj(payloadBody.cnpj);
     }
 
     if (payloadBody.endereco) {
-      await DuplicateDataUtils.duplicatedHeadquarter(payloadBody.endereco);
+      await duplicateDataUtils.duplicatedHeadquarter(payloadBody.endereco);
     }
 
     const result = await RentalRepository.updateOfficeById(payloadParam, payloadBody);

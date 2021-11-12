@@ -1,4 +1,4 @@
-const InvalidCnpj = require('../errors/rental/InvalidCnpj');
+const InvalidCnpj = require('../../errors/rental/InvalidCnpj');
 
 class CnpjUtils {
   testCnpj(strCNPJ) {

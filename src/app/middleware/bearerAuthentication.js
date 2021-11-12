@@ -8,6 +8,6 @@ module.exports = (req, res, next) => {
     req.client = decode;
     return next();
   } catch (error) {
-    return res.status(401).send({ description: 'Login', message: 'Failed to login.' });
+    return res.status(401).send({ description: 'Unauthorized', message: 'Failed to login.' });
   }
 };

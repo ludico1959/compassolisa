@@ -1,14 +1,14 @@
 const ClientRepository = require('../repository/ClientRepository');
 const ClientIdNotFound = require('../errors/client/ClientIdNotFound');
 const DateUtils = require('../utils/DateUtils');
-const CpfUtils = require('../utils/CpfUtils');
-const DuplicateDataUtils = require('../utils/DuplicateDataUtils');
+const cpfValidator = require('../validation/client/cpfValidator');
+const duplicateDataUtils = require('../validation/duplicateDataValidator');
 
 class ClientService {
   async addClient(payloadBody) {
-    await CpfUtils.testCpf(payloadBody.cpf);
-    await DuplicateDataUtils.duplicatedCpf(payloadBody.cpf);
-    await DuplicateDataUtils.duplicatedEmail(payloadBody.email);
+    await cpfValidator.testCpf(payloadBody.cpf);
+    await duplicateDataUtils.duplicatedCpf(payloadBody.cpf);
+    await duplicateDataUtils.duplicatedEmail(payloadBody.email);
 
     payloadBody.data_nascimento = await DateUtils.formatToDatabase(payloadBody.data_nascimento);
 
@@ -35,12 +35,12 @@ class ClientService {
 
   async updateClientById(payloadParam, payloadBody) {
     if (payloadBody.cpf) {
-      await CpfUtils.testCpf(payloadBody.cpf);
-      await DuplicateDataUtils.duplicatedCpf(payloadBody.cpf);
+      await cpfValidator.testCpf(payloadBody.cpf);
+      await duplicateDataUtils.duplicatedCpf(payloadBody.cpf);
     }
 
     if (payloadBody.email) {
-      await DuplicateDataUtils.duplicatedEmail(payloadBody.email);
+      await duplicateDataUtils.duplicatedEmail(payloadBody.email);
     }
 
     const result = await ClientRepository.updateClientById(payloadParam, payloadBody);
