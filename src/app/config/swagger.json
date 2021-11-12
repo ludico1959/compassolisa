@@ -88,6 +88,9 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "404": {
             "description": "Not Found"
           }
@@ -372,6 +375,23 @@
           }
         }
       },
+      "delete": {
+        "tags": [
+          "cars"
+        ],
+        "summary": "Remove a car from the database via ID",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
       "put": {
         "tags": [
           "cars"
@@ -454,20 +474,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "cars"
-        ],
-        "summary": "Remove a car from the database via ID",
-        "responses": {
-          "204": {
-            "description": "No Content"
           },
           "404": {
             "description": "Not Found"
@@ -558,6 +564,366 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/people/": {
+      "post": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Add a new client to the database",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "joaozinho ciclano"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "example": "131.147.860-49"
+                  },
+                  "data_nascimento": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "03/03/2000"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "joazinho@email.com"
+                  },
+                  "senha": {
+                    "type": "string",
+                    "example": 123456
+                  },
+                  "habilitado": {
+                    "type": "string",
+                    "example": "sim",
+                    "enum": [
+                      "sim",
+                      "não"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "string"
+                    },
+                    "cpf": {
+                      "type": "string"
+                    },
+                    "data_nascimento": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "habilitado": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "List all cars or list specific cars by parameter from the database",
+        "parameters": [
+          {
+            "name": "nome",
+            "in": "query",
+            "description": "client name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cpf",
+            "in": "query",
+            "description": "client CPF",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data_nascimento",
+            "in": "query",
+            "description": "client birthdate",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "client email",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "habilitado",
+            "in": "query",
+            "description": "client licensed status (yes or no)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit number of results per page",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "total",
+            "in": "query",
+            "description": "number of total pages",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "current offset",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offsets",
+            "in": "query",
+            "description": "number of offsets",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "veiculos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "number"
+                          },
+                          "nome": {
+                            "type": "string"
+                          },
+                          "cpf": {
+                            "type": "string"
+                          },
+                          "data_nascimento": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "habilitado": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/people/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "List a specific client by its ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "number"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "cpf": {
+                      "type": "string"
+                    },
+                    "data_nascimento": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "habilitado": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Remove a client from the database via ID",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Change properties of a client via ID",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "joaozinho ciclano"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "example": "131.147.860-49"
+                  },
+                  "data_nascimento": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "203/03/2000"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "joazinho@email.com"
+                  },
+                  "senha": {
+                    "type": "string",
+                    "example": 123456
+                  },
+                  "habilitado": {
+                    "type": "string",
+                    "example": "sim",
+                    "enum": [
+                      "sim",
+                      "não"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "number"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "cpf": {
+                      "type": "string"
+                    },
+                    "data_nascimento": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "habilitado": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Not found"
           }
         }
       }
