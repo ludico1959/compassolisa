@@ -4,6 +4,7 @@ const RentalSchema = require('../schema/RentalSchema');
 class RentalRepository {
   async addOffice(payloadBody) {
     for (let i = 0; i < payloadBody.endereco.length; i++) {
+      // eslint-disable-next-line
       const seachCep = await axios
         .get(`https://viacep.com.br/ws/${payloadBody.endereco[i].cep}/json`)
         .then((response) => response.data);

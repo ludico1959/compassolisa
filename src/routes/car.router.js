@@ -2,7 +2,7 @@ const CarController = require('../app/controller/CarController');
 const idValidation = require('../app/validation/car/idValidation');
 const addCarValidation = require('../app/validation/car/addCarValidation');
 const updateCarValidation = require('../app/validation/car/updateCarValidation');
-const bearerAuthentication = require('../app/middleware/bearerAuthentication');
+const bearerAuthentication = require('../app/middleware/BearerAuthentication');
 
 module.exports = (server, routes, prefix = '/api/v1/car') => {
   routes.post('/', bearerAuthentication, addCarValidation, CarController.addCar);

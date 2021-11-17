@@ -19,7 +19,6 @@ module.exports = {
     'no-param-reassign': ['error', { props: false }],
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'no-underscore-dangle': 'off',
-    'no-useless-escape': 'off',
-    'no-await-in-loop': 'off'
+    'no-useless-escape': 'off'
   }
 };
