@@ -1,6 +1,6 @@
 const request = require('supertest');
-const app = require('../src/app/app');
-require('../src/app/schema/ClientSchema');
+const app = require('../../src/app/app');
+require('../../src/app/schema/ClientSchema');
 
 describe('listar todos os clientes', () => {
   it('retornar status 200', async () => {

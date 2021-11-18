@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const ErrorSerialize = require('../../seriealize/ErrorSerialize');
+const ErrorSerialize = require('../seriealize/ErrorSerialize');
 
 module.exports = async (req, res, next) => {
   try {

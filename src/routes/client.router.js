@@ -1,5 +1,5 @@
 const ClientController = require('../app/controller/ClientController');
-const idValidation = require('../app/validation/client/idValidation');
+const idValidation = require('../app/validation/idValidation');
 const addClientValidation = require('../app/validation/client/addClientValidation');
 const updateClientValidation = require('../app/validation/client/updateClientValidation');
 

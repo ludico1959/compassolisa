@@ -1,7 +1,7 @@
 const RentalController = require('../app/controller/RentalController');
 const addOfficeValidation = require('../app/validation/rental/addOfficeValidation');
 const updateOfficeValidation = require('../app/validation/rental/updateOfficeValidation');
-const idValidation = require('../app/validation/rental/idValidation');
+const idValidation = require('../app/validation/idValidation');
 
 module.exports = (server, routes, prefix = '/api/v1/rental') => {
   routes.post('/', addOfficeValidation, RentalController.addOffice);
