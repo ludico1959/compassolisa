@@ -3,6 +3,5 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  setupFilesAfterEnv: ['__test__/setup.features.js'],
-  testMatch: ['**/**/**/*.test.js']
+  setupFilesAfterEnv: ['./__test__/setup.features.js']
 };

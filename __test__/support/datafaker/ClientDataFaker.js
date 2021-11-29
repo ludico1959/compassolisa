@@ -9,7 +9,7 @@ const generateClientJson = (count = 1) => {
       nome: dataFaker.name(),
       cpf: dataFaker.cpf(),
       data_nascimento: moment(dataFaker.birthday()).format('DD/MM/YYYY'),
-      email: dataFaker.email(),
+      email: dataFaker.email({ domain: 'gmail.com' }),
       senha: dataFaker.word({ length: 6 }),
       habilitado: dataFaker.array(['sim', 'não'])
     });
