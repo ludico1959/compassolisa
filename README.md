@@ -39,9 +39,18 @@ To get started, you simply need to clone the project repository on your machine 
 Before installing the dependencies from the project, you need to have already installed on your machine:
 
 * **Node.Js**: If you don't have it, just download [here](https://nodejs.org/en/download/).
-* **MongoDB**: If you don't have it, just download [here](https://www.mongodb.com/try/download/community).
+* **MongoDB**: If you don't have it, just download [here](https://www.mongodb.com/try/download/community).*
 
-### 3️⃣ Instaling dependencies
+*You don't necessary need to install MongoDB. It's possible to use a remote database through [MongoDB Atlas](https://www.mongodb.com/pt-br/cloud/atlas/register).
+MongoDB Atlas is a cloud-hosted MongoDB service on AWS, Azure and Google Cloud. 
+
+### 3️⃣ Setting the environment variables
+
+For using and accessing the MongoDB database, you must set the eenvironment variables. But don't worry, it's very easy. First, you need to choose if your database is local or remote. If it's local, you just have to create a **.env** file in the root of the API and copy and paste all the text in the **.env.example** file.
+
+If your database is remote and it's hosted in MongoDB Atlas cloud, just change the environment variable called DATABASE_URL, in the **.env.example file.**, to the connection to your remote database. Then, just copy the text, create a **.env** file in the root of the API and paste the text there!
+
+### 4️⃣ Instaling dependencies
 
 Open cmd.exe (if you are using Windows) or another command-line interpreter and enter the path of your project. Then just type the following instruction: 
 
@@ -51,8 +60,7 @@ npm install
 
 By typing the statement above, it will automatically download all the dependencies listed in the package.json file inside the folder **node_modules**:
 
-
-### 4️⃣ Running the application
+### 5️⃣ Running the application
 
 Well, now on the same cmd.exe screen (or another command-line interpreter), just start the server for the project to run locally typing:
 
@@ -60,15 +68,7 @@ Well, now on the same cmd.exe screen (or another command-line interpreter), just
 node src/app/server.js
 ```
 
-Then you will need to open another terminal on your machine and start MongoDB. Just type the following command on the cmd.exe (or another command-line interpreter) screen:
-
-```
-mongod
-```
-
-If MongoDB is properly installed on your machine, it will start the service showing that port 27017 has been started.
-
-### 5️⃣ Testing the application 
+### 6️⃣ Testing the application 
 There are two options to test this API: 
 
 #### 🎨 SWAGGER UI
@@ -81,3 +81,11 @@ http://localhost:3000/api/v1/api-docs/
 #### 📬 POSTMAN
 The second one is using the Postman request collection from the repository to easily test the endpoints!
 The file name is **postman_collection.json** and to use it, just download the Postman [here](https://www.postman.com/downloads/).
+
+## 📡 Run remotely
+
+There is a new simple way to run the API. You can use a container-based cloud Platform as a Service (PaaS) called **Heroku**. It allows developers to deploy, manage, and scale modern apps. For using it, you just need access the following link below:
+
+```
+https://compassolisa-api.herokuapp.com/
+```
