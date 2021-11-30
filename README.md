@@ -44,6 +44,7 @@ Before installing the dependencies from the project, you need to have already in
 *You don't necessary need to install MongoDB. It's possible to use a remote database through [MongoDB Atlas](https://www.mongodb.com/pt-br/cloud/atlas/register).
 MongoDB Atlas is a cloud-hosted MongoDB service on AWS, Azure and Google Cloud. 
 
+
 ### 3️⃣ Setting the environment variables
 
 For using and accessing the MongoDB database, you must set the eenvironment variables. But don't worry, it's very easy. First, you need to choose if your database is local or remote. If it's local, you just have to create a **.env** file in the root of the API and copy and paste all the text in the **.env.example** file.
