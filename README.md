@@ -51,6 +51,7 @@ For using and accessing the MongoDB database, you must set the eenvironment vari
 
 If your database is remote and it's hosted in MongoDB Atlas cloud, just change the environment variable called DATABASE_URL, in the **.env.example file.**, to the connection to your remote database. Then, just copy the text, create a **.env** file in the root of the API and paste the text there!
 
+
 ### 4️⃣ Instaling dependencies
 
 Open cmd.exe (if you are using Windows) or another command-line interpreter and enter the path of your project. Then just type the following instruction: 
@@ -61,6 +62,7 @@ npm install
 
 By typing the statement above, it will automatically download all the dependencies listed in the package.json file inside the folder **node_modules**:
 
+
 ### 5️⃣ Running the application
 
 Well, now on the same cmd.exe screen (or another command-line interpreter), just start the server for the project to run locally typing:
@@ -68,6 +70,7 @@ Well, now on the same cmd.exe screen (or another command-line interpreter), just
 ```
 node src/app/server.js
 ```
+
 
 ### 6️⃣ Testing the application 
 There are two options to test this API: 
