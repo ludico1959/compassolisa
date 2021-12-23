@@ -71,7 +71,6 @@ Well, now on the same cmd.exe screen (or another command-line interpreter), just
 node src/app/server.js
 ```
 
-
 ### 6️⃣ Testing the application 
 There are two options to test this API: 
 
