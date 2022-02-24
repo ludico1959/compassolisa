@@ -81,7 +81,7 @@ The first one, using Swagger UI, is more user friendly. To use it, just type the
 http://localhost:3000/api/v1/api-docs/
 ```
 
-#### 📬 POSTMAN
+#### 📮 POSTMAN
 The second one is using the Postman request collection from the repository to easily test the endpoints!
 The file name is **postman_collection.json** and to use it, just download the Postman [here](https://www.postman.com/downloads/).
 
