@@ -1,6 +1,12 @@
-# COMPASSOLISA 🚘
+# COMPASSOLISA 🚘🔑🙎‍♂️
 
-This API RESTful includes the four basic CRUD operations and it is about a luxury and semi luxury car rental system.
+This API RESTful includes the four basic CRUD operations and it is about a luxury and semi luxury car rental system. 
+
+**Note:** This is is my first API ever, so maybe you can find some bugs, incompleted own modules and some bad code practices. 
+I was developing it during my internship and it was my first contact with Node.js.
+At the time, I was just learning how to implement tests with [Jest](https://www.npmjs.com/package/jest). 
+Fot this reason, my tests also don't have a good coverage percentage. 
+My next API's in this repository improved since this one and maybe some day I will come here and update it.
 
 ## 💾 Resources
 
